@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import Resturent from "./Compo/Resturent";
+import "./Compo/Res.scss";
+import Menu from "./Compo/MenuApi";
+import { useState } from "react";
+import Firstpage from "./Compo/Firstpage";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+  const [menudata,setmenudata]=useState(Menu);
+  console.log(menudata)
+  
+
+  const filterItem=(category)=>{
+    if(category==="all" ){
+      setmenudata(Menu)
+      return
+    }
+
+
+  const updatedlist = Menu.filter((ele)=>{
+     return ele.category === category;
+  });
+  setmenudata(updatedlist)
+  
+  }
+  return (
+
+    <>
+    <div className="all">
+
+    <Firstpage/>
+        
+       <div className="navdiv">
+        <nav>
+          <button className="navbtn" tabindex="1" onClick={()=>filterItem("all")}>All</button>
+          <button className="navbtn" tabindex="0" onClick={()=>filterItem("breakfast")}>Breakfast</button>
+          <button className="navbtn" tabindex="0" onClick={()=>filterItem("lunch")}>Lunch</button>
+          <button className="navbtn" tabindex="0" onClick={()=>filterItem("dinner")} >Dinner</button>
+        </nav>
+       </div>
+
+
+       
+
+    <div className="main" >
+     <Resturent  menudata={menudata}/> 
+    </div>
+
+
+
+    </div>
+    </>
+  )
+}
+export default App; 
