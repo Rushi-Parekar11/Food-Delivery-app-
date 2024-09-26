@@ -1,0 +1,15 @@
+.mainNav{
+    height: 10vh;width: 100%;background-color: #ef4f5f;display: flex;
+    div{border: 1px solid white;height: 10vh;width: 33.33%;}
+  
+    .ty{
+      display: flex; align-items: center;justify-content: end;gap: 16px;padding-right: 130px;color: white;gap: 30px;
+      #cartCount{height: 30px;width: 30px;background-color: green;}
+      :nth-child(1){height: 30px;width: 30px;}
+      :nth-child(2){height: 30px;width: 30px;}
+      :nth-child(3){height: 30px;width: 30px;}
+      :nth-child(4){height: 30px;width: 30px;}
+
+
+    }
+   }

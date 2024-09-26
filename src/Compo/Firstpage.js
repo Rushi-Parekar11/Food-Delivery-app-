@@ -1,19 +1,28 @@
-import React from 'react'
-import "./Res.scss"
+import React, { useState } from 'react'
+import "./firstp.scss"
 import "../Img/favicon.png"
+import { CgProfile } from "react-icons/cg";
+import { FiShoppingCart } from "react-icons/fi";
+import { LuMoon } from "react-icons/lu";
+import { MdOutlineLightMode } from "react-icons/md";
 
 
 function Firstpage() {
+  const [dark,setdark]=useState(true)
+  function darkmode(){setdark(!dark)}
   return (
     <>
         <div className="mainNav">
-          <div></div>
-          <div></div>
+          <div className='fy'></div>
+          <div className='sy'></div>
 
-          <div>  
-          <button type="button" class="btn btn-light">View Cart</button>
+          <div className='ty'>  
+          <span style={{height:'25px',width:'25px',background:'#00ff7b'}}>3</span>
+          <FiShoppingCart/>
+          <span onClick={darkmode}>{dark ? <LuMoon />:<MdOutlineLightMode /> }</span>
+          <CgProfile />
 
-          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" class="bi bi-person-circle" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/></svg>
+
           </div>
 
         </div>
